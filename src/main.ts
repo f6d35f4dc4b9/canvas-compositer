@@ -142,6 +142,20 @@ function attachListeners() {
     drawCanvas();
   }
 
+  document.getElementById("save-btn")!.onclick = async () => {
+    const a = document.createElement("a");
+    a.download = "download.webp";
+    a.href = canvas!.toDataURL("image/webp");
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  document.getElementById("fullscr-btn")!.onclick = () => {
+    canvas!.requestFullscreen();
+  };
+
   document.getElementById("canvas")!.onmousedown = ev => {
     const clientRect = (ev.target as HTMLElement).getBoundingClientRect();
     x_0 = (ev.pageX - (clientRect.left + window.scrollX)) * (baseImgWidth! / clientRect.width);
@@ -160,6 +174,7 @@ function attachListeners() {
     animationHanderId = requestAnimationFrame(drawCanvas);
   };
   document.getElementById("canvas")!.ontouchmove = ev => {
+    ev.preventDefault();
     cancelAnimationFrame(animationHanderId)
     const clientRect = (ev.target as HTMLElement).getBoundingClientRect();
     x_0 = (ev.touches[0].pageX - (clientRect.left + window.scrollX)) * (baseImgWidth! / clientRect.width);
