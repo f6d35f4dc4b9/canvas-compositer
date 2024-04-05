@@ -1,9 +1,9 @@
 import { getImgSize, blobToImageData, drawLinear, drawCircular, Mode } from "./utils"
 
 let mode = "Linear" as Mode;
-let changeWidth = 200;
+let changeWidth = 100;
 let gradient = 0;
-let radius = 100;
+let radius = 50;
 let invert = false;
 
 let x_0 = 50;
