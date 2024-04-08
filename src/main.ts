@@ -145,7 +145,7 @@ function attachListeners() {
   document.getElementById("save-btn")!.onclick = async () => {
     const a = document.createElement("a");
     a.download = "download.webp";
-    a.href = canvas!.toDataURL("image/webp");
+    a.href = canvas!.toDataURL("image/webp", 0.92);
 
     document.body.appendChild(a);
     a.click();
