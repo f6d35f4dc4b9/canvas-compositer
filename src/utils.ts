@@ -38,7 +38,7 @@ export function drawLinear(
     for (let y = 0; y < height; y++) {
       const dist = (- gradient * x - y + A) / denominator;
 
-      buf.data[(x + y * width) * 4 + 3] = 128 + (dist / halfChangeWidth) * 128 * coeff;
+      buf.data[(x + y * width) * 4 + 3] = 128 - (dist / halfChangeWidth) * 128 * coeff;
     }
   }
 
@@ -65,7 +65,7 @@ export function drawCircular(
       const dy = y - cy;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      buf.data[(x + y * width) * 4 + 3] = 128 + ((dist - radius) / halfChangeWidth ) * 128 * coeff;
+      buf.data[(x + y * width) * 4 + 3] = 128 - ((dist - radius) / halfChangeWidth ) * 128 * coeff;
     }
   }
 
