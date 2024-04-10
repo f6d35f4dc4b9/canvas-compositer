@@ -9,6 +9,6 @@
 
 canvas {
   margin-top: 8px;
-  max-width: 95vw;
+  max-width: min(96vw, 100vw - 18px);
   border: 1px solid grey;
 }
